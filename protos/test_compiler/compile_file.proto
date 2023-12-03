@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package compiler;
+
+message Compiler {
+  string name = 1;
+}

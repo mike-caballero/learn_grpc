@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package helloworld;
+
+import "protos/helloworld/helloworld.proto";
+
+// The greeting service definition.
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
