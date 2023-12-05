@@ -1,23 +1,20 @@
 from concurrent.futures import ThreadPoolExecutor
-import logging
 
 import grpc
 from protos.helloworld.helloworld_pb2 import HelloRequest, HelloReply
-from protos.helloworld.helloworld_pb2_grpc import Greeter as GreeterServicer
+from protos.helloworld.helloworld_service_pb2_grpc import GreeterServicer, add_GreeterServicer_to_server
 
 
 class Greeter(GreeterServicer):
     def SayHello(self, request, context):
-        return HelloReply(message="Hello, %s!" % request.name)
+        return HelloReply(message="Hello World!")
 
 
 def serve():
-    port = "50051"
     server = grpc.server(ThreadPoolExecutor(max_workers=10))
-    helloworld_pb2_grpc.add_GreeterServicer_to_server(Greeter(), server)
-    server.add_insecure_port("[::]:" + port)
+    add_GreeterServicer_to_server(Greeter(), server)
+    server.add_insecure_port("[::]:8000")
     server.start()
-    print("Server started, listening on " + port)
     server.wait_for_termination()
 
 
