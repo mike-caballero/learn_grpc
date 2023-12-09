@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+
+import { GreeterClient } from './protos/helloworld/Helloworld_serviceServiceClientPb.ts';
+import { HelloRequest } from '../protos/helloworld/helloworld_pb.ts';
 
 function App() {
   const [helloWorld, setHelloWorld] = useState('');

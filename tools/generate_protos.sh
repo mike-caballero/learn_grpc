@@ -16,10 +16,6 @@ find "$PROTO_DIR" -name '*.proto' | while read -r proto_file; do
         "$proto_file"
 
     if contains_service "$proto_file"; then
-        protoc --proto_path="." \
-            --grpc-web_out="import_style=typescript,mode=grpcwebtext:." \
-            "$proto_file"
-
         python -m grpc_tools.protoc --proto_path="." \
                                     --grpc_python_out="." \
                                     "$proto_file"
