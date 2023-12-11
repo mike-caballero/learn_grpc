@@ -3,7 +3,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-*/node_modules
+**/node_modules
 /.pnp
 .pnp.js
 
@@ -193,6 +193,4 @@ cython_debug/
 # Ignore generated protobuf files
 *_pb2.py
 *_pb2_grpc.py
-*_pb.d.ts 
-*_pb.js
-*Pb.ts
+frontend/ts-protos/protos

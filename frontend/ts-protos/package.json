@@ -1,0 +1,12 @@
+{
+  "name": "ts-protos",
+  "version": "1.0.0",
+  "description": "Generated protos and services for TypeScript use.",
+  "license": "MIT",
+  "dependencies": {
+    "yarn": "^1.22.21"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

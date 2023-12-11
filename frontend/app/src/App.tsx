@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from 'src/logo.svg';
+import 'src/App.css';
 
-import { GreeterClient } from './protos/helloworld/Helloworld_serviceServiceClientPb.ts';
-import { HelloRequest } from '../protos/helloworld/helloworld_pb.ts';
+import { GreeterClient } from 'protos/helloworld/Helloworld_serviceServiceClientPb';
+import { HelloRequest } from 'protos/helloworld/helloworld_pb';
 
 function App() {
   const [helloWorld, setHelloWorld] = useState('');
 
   useEffect(() => {
-    axios.get('/api')
-      .then(response => {
-        setHelloWorld(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-      });
+    const client = new GreeterClient('http://localhost:8000');
+    const request = new HelloRequest();
+    request.setName('Your Name');
+    
+    client.sayHello(request, {}, (err, response) => {
+      if (err) {
+        console.error('There was an error!', err);
+        return;
+      }
+      setHelloWorld(response.getMessage());
+    });
   }, []);
 
   return (
