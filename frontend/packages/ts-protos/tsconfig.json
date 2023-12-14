@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-      "baseUrl": "protos"
+      "baseUrl": "protos",
+      "outDir": "build"
     },
     "include": [
       "protos"
