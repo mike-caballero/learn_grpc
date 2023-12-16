@@ -4,7 +4,7 @@ start_services() {
     (cd backend && python helloworld.py) &
     BACKEND_PID=$!
 
-    (cd frontend && yarn start) &
+    (cd frontend/packages/app && yarn start) &
     FRONTEND_PID=$!
 
     nginx &

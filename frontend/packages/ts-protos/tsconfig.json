@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
       "baseUrl": "protos",
-      "outDir": "build"
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
     },
     "include": [
       "protos"
-    ]
+    ],
   }
   

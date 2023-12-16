@@ -17,7 +17,7 @@ find "$PROTO_DIR" -name '*.proto' | while read -r proto_file; do
     protoc --proto_path="." \
         --python_out="." \
         --js_out="import_style=commonjs,binary:$TS_OUT_PACKAGE/" \
-        --grpc-web_out="import_style=typescript,mode=grpcwebtext:$TS_OUT_PACKAGE/" \
+        --grpc-web_out="import_style=typescript,mode=grpcweb:$TS_OUT_PACKAGE/" \
         "$proto_file"
 
     if contains_service "$proto_file"; then
