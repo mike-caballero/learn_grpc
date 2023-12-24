@@ -4,8 +4,7 @@ Mini-project to learn setting up and maintaining a gRPC backend.
 
 1. `chmod +x tools/*`
 2. `tools/setup_macos.sh`
-3. `(cd frontend && yarn start)`
-4. `(cd backend && python helloworld.py)` in a serparate terminal
+3. `tools/start_services.sh`
 
 Setup:
 - Leverages [protobuf](https://github.com/protocolbuffers/protobuf) to generate protobufs and services.
