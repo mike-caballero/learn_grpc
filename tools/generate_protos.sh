@@ -27,4 +27,6 @@ find "$PROTO_DIR" -name '*.proto' | while read -r proto_file; do
     fi
 done
 
-(cd "$FRONTEND_DIR" && yarn install)
+(cd $TS_OUT_PACKAGE && npx tsc)
+
+(cd $FRONTEND_DIR && yarn install)
