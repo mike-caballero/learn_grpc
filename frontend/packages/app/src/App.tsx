@@ -11,13 +11,16 @@ function App() {
   useEffect(() => {
     const client = new GreeterClient('http://localhost:8080');
     const request = new HelloRequest();
-    request.setName('Your Name');
+    request.setName('hello');
+    
+    console.log("Sending request:", request.toObject());
     
     client.sayHello(request, {}, (err, response) => {
       if (err) {
         console.error('There was an error!', err);
         return;
       }
+      console.log("Received response:", response.toObject()); 
       setHelloWorld(response.getMessage());
     });
   }, []);

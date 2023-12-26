@@ -193,3 +193,6 @@ cython_debug/
 # Ignore generated protobuf files
 *_pb2.py
 *_pb2_grpc.py
+
+# Ignore request, response, and nginx logs
+runtime/*

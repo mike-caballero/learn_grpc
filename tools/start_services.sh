@@ -1,14 +1,13 @@
 #!/bin/bash
 
 start_services() {
-    (cd backend && python helloworld.py) &
+    (python backend/helloworld.py) &
     BACKEND_PID=$!
+
+    nginx -c $PWD/nginx.conf -p $PWD
 
     (cd frontend/packages/app && yarn start) &
     FRONTEND_PID=$!
-
-    nginx &
-    NGINX_PID=$!
 }
 
 stop_services() {
@@ -16,7 +15,7 @@ stop_services() {
 
     kill $FRONTEND_PID
 
-    nginx -s stop
+    kill -TERM `cat $PWD/runtime/nginx.pid`
 }
 
 trap stop_services SIGINT
