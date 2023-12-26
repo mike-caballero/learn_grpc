@@ -9,7 +9,7 @@ function App() {
   const [helloWorld, setHelloWorld] = useState('');
 
   useEffect(() => {
-    const client = new GreeterClient('http://localhost:8000');
+    const client = new GreeterClient('http://localhost:8080');
     const request = new HelloRequest();
     request.setName('Your Name');
     
