@@ -6,7 +6,7 @@ import grpc
 from protos.helloworld.helloworld_pb2 import HelloRequest, HelloReply
 from protos.helloworld.helloworld_service_pb2_grpc import GreeterServicer, add_GreeterServicer_to_server
 
-logging.basicConfig(level=logging.INFO, filename=f'{os.getcwd()}/runtime/server.log', filemode='a',
+logging.basicConfig(level=logging.INFO, filename=f'{os.getcwd()}/runtime/backend_server.log', filemode='a',
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Greeter(GreeterServicer):

@@ -13,14 +13,14 @@ function App() {
     const request = new HelloRequest();
     request.setName('hello');
     
-    console.log("Sending request:", request.toObject());
+    console.log("Sending request:\n", JSON.stringify(request.toObject()));
     
     client.sayHello(request, {}, (err, response) => {
       if (err) {
         console.error('There was an error!', err);
         return;
       }
-      console.log("Received response:", response.toObject()); 
+      console.log("Received response:\n", JSON.stringify(response.toObject())); 
       setHelloWorld(response.getMessage());
     });
   }, []);
